@@ -1,4 +1,4 @@
-- name: ADFS restart after updates
+- name: Restart Windows Server after updates are installed and if restart is required
   hosts: adfs
   tasks:
     - name: check if updates are installed
