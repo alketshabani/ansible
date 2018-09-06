@@ -1,0 +1,12 @@
+- name: ADFS restart after updates
+  hosts: adfs
+  tasks:
+    - name: check if updates are installed
+      win_updates:
+        state: installed
+      register: result
+
+    - debug: var=result
+
+    - win_reboot:
+      when: result.reboot_required
